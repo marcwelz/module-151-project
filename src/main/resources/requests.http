@@ -1,0 +1,38 @@
+### USER
+GET http://{{host}}/getall/user
+Content-Type: application/json
+
+###
+GET http://{{host}}/add/user
+Content-Type: application/json
+
+{
+  "id": "4",
+  "username": "Milchmaa",
+  "adress": "Musterstrasse 69, Winterthur",
+  "phone": "076 545 43 22"
+}
+
+### LOGIN
+GET http://{{host}}/getall/login
+Content-Type: application/json
+
+###
+GET http://{{host}}/add/user
+Content-Type: application/json
+
+{
+  "customerIdfs": "3",
+  "email": "hans@bbw.ch",
+  "password": "1234",
+  "token": "",
+  "admin": false
+}
+
+### ORDER
+GET http://{{host}}/getall/order
+Content-Type: application/json
+
+### ARTICLE
+GET http://{{host}}/getall/article
+Content-Type: application/json
