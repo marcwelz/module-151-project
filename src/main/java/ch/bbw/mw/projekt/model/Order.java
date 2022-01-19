@@ -1,36 +1,41 @@
 package ch.bbw.mw.projekt.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
 import java.time.LocalDateTime;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "order")
+@Table(name = "order", indexes = {
+        @Index(name = "useridfs", columnList = "useridfs", unique = false),
+        @Index(name = "articleidfs", columnList = "articleidfs", unique = false),
+})
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class Order {
 
     @Id
-    @Column(name = "id", unique = true)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "orderid", unique = true)
     private int id;
 
-    @JoinTable(name = "user", joinColumns = {@JoinColumn(name = "id")})
-    private int customerIdfs;
+    @OneToOne(optional = false, targetEntity = User.class)
+    @JoinColumn(name = "useridfs", nullable = false)
+    private int userIdfs;
 
-    @JoinColumn(name = "id", nullable = false)
-    private int articleIdfs;
+    @OneToOne(optional = false, targetEntity = Article.class)
+    @JoinColumn(name = "articleidfs", nullable = false)
+    private int articleidfs;
 
-    @Column(name = "totalPrice", nullable = false)
-    private double totalePrice;
+    @Column(name = "totalprice", nullable = false)
+    private double totaleprice;
 
-    @Column(name = "orderTime")
-    private LocalDateTime orderTime;
+    @Column(name = "ordertime")
+    private LocalDateTime ordertime;
 
-    public Order(int id, int customerIdfs, int articleIdfs, double totalePrice, LocalDateTime orderTime) {
-        this.id = id;
-        this.customerIdfs = customerIdfs;
-        this.articleIdfs = articleIdfs;
-        this.totalePrice = totalePrice;
-        this.orderTime = orderTime;
-    }
-
-    public Order() {
-    }
 }

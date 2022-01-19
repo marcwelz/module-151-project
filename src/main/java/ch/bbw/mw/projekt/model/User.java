@@ -1,62 +1,30 @@
 package ch.bbw.mw.projekt.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "user")
+
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
 public class User {
 
     @Id
-    @Column(name = "id", unique = true)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "userid", unique = true)
+    private int userid;
 
-    @Column(name = "username")
+    @Column(name = "username", nullable = false)
     private String username;
 
-    @Column(name = "adress")
+    @Column(name = "adress", nullable = false)
     private String adress;
 
-    @Column(name = "phone")
+    @Column(name = "phone", nullable = false)
     private String phone;
 
-    public User(int id, String username, String adress, String phone) {
-        this.id = id;
-        this.username = username;
-        this.adress = adress;
-        this.phone = phone;
-    }
-
-    public User(){}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getAdress() {
-        return adress;
-    }
-
-    public void setAdress(String adress) {
-        this.adress = adress;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 }

@@ -1,21 +1,22 @@
 package ch.bbw.mw.projekt.model;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
 @Entity
-@Table(name = "article")
+@Table(name = "article" )
 
-@RequiredArgsConstructor
 @AllArgsConstructor
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
 public class Article {
 
     @Id
-    @Column(name = "id", unique = true)
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "articleid", unique = true)
+    private int articleid;
 
     @Column(name = "title")
     private String title;

@@ -1,9 +1,13 @@
 ### USER
-GET http://{{host}}/getall/user
+GET http://{{host}}/user/getall/user
 Content-Type: application/json
 
 ###
-GET http://{{host}}/add/user
+GET http://{{host}}/user/get/userbyId/1
+Content-Type: application/json
+
+###
+POST http://{{host}}/user/add
 Content-Type: application/json
 
 {
@@ -14,11 +18,11 @@ Content-Type: application/json
 }
 
 ### LOGIN
-GET http://{{host}}/getall/login
+GET http://{{host}}/login/get
 Content-Type: application/json
 
 ###
-GET http://{{host}}/add/user
+POST http://{{host}}/login/add
 Content-Type: application/json
 
 {
@@ -30,9 +34,9 @@ Content-Type: application/json
 }
 
 ### ORDER
-GET http://{{host}}/getall/order
+GET http://{{host}}/order/get/
 Content-Type: application/json
 
 ### ARTICLE
-GET http://{{host}}/getall/article
+GET http://{{host}}/article/get/
 Content-Type: application/json

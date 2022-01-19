@@ -1,36 +1,34 @@
 package ch.bbw.mw.projekt.model;
 
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "login")
-
-@RequiredArgsConstructor
-@AllArgsConstructor
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
+@Getter
+@Setter
+@Table(name = "login", indexes = {
+        @Index(name = "useridfs", columnList = "useridfs", unique = true)
+})
 public class Login {
 
     @Id
-    @Column(name = "customerIdfs", unique = true)
-    private int customerIdfs;
+    @Column(name = "useridfs", unique = true)
+    private int useridfs;
 
-    @Column(name = "email")
+    @Column(name = "email", nullable = false)
     private String email;
 
-    @Column(name = "password")
+    @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "token")
+    @Column(name = "token", nullable = true)
     private String token;
 
-    @Column(name = "admin")
+    @Column(name = "admin", nullable = false)
     private boolean admin;
 
 }
