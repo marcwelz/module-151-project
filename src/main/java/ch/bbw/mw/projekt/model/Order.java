@@ -38,5 +38,4 @@ public class Order {
     @Column(name = "ordertime")
     private LocalDateTime ordertime;
 
-
 }
